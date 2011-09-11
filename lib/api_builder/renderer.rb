@@ -5,11 +5,13 @@ module ApiBuilder
       renderer.out
     end
 
-    attr_reader :out
-
     def initialize(scope, *args, &block)
       @_out = []
       ScopeRenderer.eval(self, scope, &block)
+    end
+
+    def out
+      @_out
     end
 
     def element(*args, &block)
@@ -27,8 +29,6 @@ module ApiBuilder
       renderer.out
     end
 
-    attr_reader :out
-
     def initialize(scope, *args, &block)
       if block_given?
         @_out = {}
@@ -36,6 +36,10 @@ module ApiBuilder
       else
         @_out = args[0]
       end
+    end
+
+    def out
+      @_out
     end
 
     def id(value)
@@ -75,10 +79,12 @@ module ApiBuilder
       end
     end
 
-    attr_reader :out
-
     def initialize(scope, *args, &block)
       ScopeRenderer.eval(self, scope, &block)
+    end
+
+    def out
+      @_out
     end
 
     def element(*args, &block)
