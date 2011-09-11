@@ -63,10 +63,10 @@ module ApiBuilder
     def self.render(format = "json", &block)
       renderer = self.new(&block)
       
-      case format
-      when "json"
+      case format.to_sym
+      when :json
         renderer.out.to_json
-      when "xml"
+      when :xml
         renderer.out.to_xml
       else
         raise "unknown format #{format}"
