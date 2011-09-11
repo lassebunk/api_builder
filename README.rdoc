@@ -1,0 +1,42 @@
+== About
+
+ApiBuilder is a Ruby on Rails template engine that allows for multiple formats being laid out in a single specification, currently XML and JSON.
+The template engine currently returns a hash that is converted to either JSON or XML, JSON being the only usable format right now.
+
+== Installation
+
+  $ rails plugin install git://github.com/lassebunk/api_builder.git
+
+== Examples
+
+In app/views/users/index.apibuilder:
+
+  array do
+    @users.each do |user|
+      element do
+        id @user.id
+        name @user.name
+      end
+    end
+  end
+
+In app/views/users/show.apibuilder:
+
+  element do
+    id @user.id
+    name @user.name
+    address do
+      street @user.street
+      city @user.city
+    end
+    array :interests do
+      @user.interests.each do |interest|
+        element interest.name
+      end
+    end
+  end
+
+More examples to come. This is the first version which will be expanded as I use this myself.
+Inputs are welcome at lassebunk@gmail.com.
+
+Copyright (c) 2011 Lasse Bunk, released under the MIT license
