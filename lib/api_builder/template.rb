@@ -8,7 +8,7 @@ module ActionView
 
       def compile(template)
         "block = lambda { " + template.source + " };" +
-        "ApiBuilder::BaseRenderer.render(params[:format], &block);"
+        "ApiBuilder::BaseRenderer.render(self, params[:format], &block);"
       end
     end
   end
