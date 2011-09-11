@@ -47,12 +47,12 @@ module ApiBuilder
     end
 
     def array(name, &block)
-      @out.update name => ArrayRenderer.render(&block)
+      @out.update name => ArrayRenderer.render(self, &block)
     end
 
     def method_missing(name, *args, &block)
       if block_given?
-        @out.update name => ElementRenderer.render(&block)
+        @out.update name => ElementRenderer.render(self, &block)
       else
         @out.update name => args[0]
       end
