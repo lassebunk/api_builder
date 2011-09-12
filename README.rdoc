@@ -35,6 +35,22 @@ In app/views/api/users/show.apibuilder:
       end
     end
   end
+  
+Returns:
+
+  {
+    "id": 1234,
+    "name": "Peter Jackson",
+    "interests": [
+      "Movies",
+      "Computers",
+      "Internet"
+    ],
+    "address": {
+      "street": "123 High Way",
+      "city": "Gotham City"
+    }
+  }
 
 You can then call your API like this:
 
