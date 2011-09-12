@@ -5,56 +5,67 @@ module ApiBuilder
     end
     
     def method_missing(name, *args, &block)
-      @out = {} if @out.nil?
+      @_out = {} if @_out.nil?
 
       if block_given?
-        out = @out
-        @out = {}
+        out = @_out
+        @_out = {}
         block.call
-        out[name] = @out
-        @out = out
+        out[name] = @_out
+        @_out = out
       else
-        @out[name] = args[0]
+        @_out[name] = args[0]
       end
     end
 
     def array(*args, &block)
-      if @out.nil?
-        @out = []
+      if @_out.nil?
+        @_out = []
         block.call
-      elsif @out.is_a?(Array)
-        out = @out
-        @out = []
+      elsif @_out.is_a?(Array)
+        out = @_out
+        @_out = []
         block.call
-        out << @out
-        @out = out
+        out << @_out
+        @_out = out
       else # out is a hash
-        out = @out
-        @out = []
+        out = @_out
+        @_out = []
         block.call
-        out[args[0]] = @out
-        @out = out
+        out[args[0]] = @_out
+        @_out = out
       end
     end
 
     def element(*args, &block)
       if block_given?
-        if @out.nil?
-          @out = {}
+        if @_out.nil?
+          @_out = {}
           block.call
         else
-          out = @out
-          @out = {}
+          out = @_out
+          @_out = {}
           block.call
-          out << @out
-          @out = out
+          out << @_out
+          @_out = out
         end
       else
-        if @out.nil?
-          @out = args[0]
+        if @_out.nil?
+          @_out = args[0]
         else
-          @out << args[0]
+          @_out << args[0]
         end
+      end
+    end
+    
+    def get_output
+      case params[:format].to_sym
+      when :json
+        @_out.to_json
+      when :xml
+        @_out.to_xml
+      else
+        raise "unknown format '#{format}'"
       end
     end
   end

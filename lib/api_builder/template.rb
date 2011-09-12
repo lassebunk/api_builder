@@ -3,14 +3,13 @@ require 'action_view/template'
 
 module ActionView
   module Template::Handlers
-    class ApiBuilder < Template::Handler
-      include Compilable
+    class ApiBuilder
 
-      def compile(template)
+      def self.call(template)
         "
         extend ApiBuilder::Renderer
         #{template.source}
-        @out.to_json
+        get_output
         "
       end
     end
