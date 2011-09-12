@@ -1,5 +1,9 @@
 module ApiBuilder
   module Renderer
+    def id(*args, &block)
+      method_missing(:id, *args, &block)
+    end
+    
     def method_missing(name, *args, &block)
       @out = {} if @out.nil?
 
