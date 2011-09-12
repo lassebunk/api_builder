@@ -59,7 +59,7 @@ module ApiBuilder
     end
     
     def get_output
-      case params[:format].to_sym
+      case (params[:format] || '').to_sym
       when :json
         if params[:callback]
           "#{params[:callback]}(#{@_out.to_json})"
@@ -69,7 +69,7 @@ module ApiBuilder
       when :xml
         @_out.to_xml
       else
-        raise "unknown format '#{format}'"
+        raise "unknown format '#{params[:format]}'"
       end
     end
   end
