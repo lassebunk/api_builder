@@ -37,6 +37,22 @@ In app/views/users/show.apibuilder:
   end
 
 More examples to come. This is the first version which will be expanded as I use this myself.
-Inputs are welcome at lassebunk@gmail.com.
+
+== Features
+
+=== Multiple formats
+
+ApiBuilder supports both JSON and XML. However, the only usable format right now is JSON.
+
+=== JSONP requests (callback parameter)
+
+ApiBuilder supports JSONP requests. Just call your URL with a callback parameter, e.g.:
+  
+  http://example.com/api/users?format=json&callback=myCallback
+
+== Support
+
+Questions and suggestions are welcome at lassebunk@gmail.com.
+My blog is at http://lassebunk.dk.
 
 Copyright (c) 2011 Lasse Bunk, released under the MIT license
