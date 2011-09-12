@@ -7,8 +7,11 @@ module ActionView
       include Compilable
 
       def compile(template)
-        "block = lambda { " + template.source + " };" +
-        "ApiBuilder::BaseRenderer.render(self, params[:format], &block);"
+        "
+        extend ApiBuilder::Renderer
+        #{template.source}
+        @out.to_json
+        "
       end
     end
   end
