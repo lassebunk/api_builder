@@ -54,15 +54,15 @@ Returns:
   {
     "id": 1234,
     "name": "Peter Jackson",
+    "address": {
+      "street": "123 High Way",
+      "city": "Gotham City"
+    },
     "interests": [
       "Movies",
       "Computers",
       "Internet"
-    ],
-    "address": {
-      "street": "123 High Way",
-      "city": "Gotham City"
-    }
+    ]
   }
 
 You can then call your API like this:
