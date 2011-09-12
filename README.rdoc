@@ -9,7 +9,7 @@ The template engine currently returns a hash that is converted to either JSON or
 
 == Examples
 
-In app/views/users/index.apibuilder:
+In app/views/api/users/index.apibuilder:
 
   array do
     @users.each do |user|
@@ -20,7 +20,7 @@ In app/views/users/index.apibuilder:
     end
   end
 
-In app/views/users/show.apibuilder:
+In app/views/api/users/show.apibuilder:
 
   element do
     id @user.id
@@ -36,7 +36,15 @@ In app/views/users/show.apibuilder:
     end
   end
 
-More examples to come. This is the first version which will be expanded as I use this myself.
+You can then call your API like this:
+
+  http://example.com/api/users?format=json
+
+or
+
+  http://example.com/api/users?format=xml
+  
+and so on.
 
 == Features
 
