@@ -61,7 +61,11 @@ module ApiBuilder
     def get_output
       case params[:format].to_sym
       when :json
-        @_out.to_json
+        if params[:callback]
+          "#{params[:callback]}(#{@_out.to_json})"
+        else
+          @_out.to_json
+        end
       when :xml
         @_out.to_xml
       else
