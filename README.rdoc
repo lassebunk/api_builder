@@ -19,6 +19,19 @@ In app/views/api/users/index.apibuilder:
       end
     end
   end
+  
+Returns:
+
+  [
+    {
+      "id": 1234,
+      "name": "Peter Jackson"
+    },
+    {
+      "id": 1235,
+      "name": "Marilyn Monroe"
+    }
+  ]
 
 In app/views/api/users/show.apibuilder:
 
