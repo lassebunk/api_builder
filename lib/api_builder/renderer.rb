@@ -18,13 +18,13 @@ module ApiBuilder
       end
     end
 
-    def array(*args, &block)
+    def array(name, value = nil, &block)
       if @_out.nil?
-        @_out = []
+        @_out = ArrayWithName.new(name)
         block.call
       elsif @_out.is_a?(Array)
         out = @_out
-        @_out = []
+        @_out = ArrayWithName.new(name)
         block.call
         out << @_out
         @_out = out
@@ -32,28 +32,28 @@ module ApiBuilder
         out = @_out
         @_out = []
         block.call
-        out[args[0]] = @_out
+        out[name] = @_out
         @_out = out
       end
     end
 
-    def element(*args, &block)
+    def element(name, value = nil, &block)
       if block_given?
         if @_out.nil?
-          @_out = {}
+          @_out = HashWithName.new(name)
           block.call
         else
           out = @_out
-          @_out = {}
+          @_out = HashWithName.new(name)
           block.call
           out << @_out
           @_out = out
         end
       else
         if @_out.nil?
-          @_out = args[0]
+          @_out = StringWithName.new(name, value)
         else
-          @_out << args[0]
+          @_out << StringWithName.new(name, value)
         end
       end
     end
