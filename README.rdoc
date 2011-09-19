@@ -32,6 +32,8 @@ Returns:
     }
   ]
 
+And the equivalent XML.
+
 In app/views/api/users/show.apibuilder:
 
   element :user do
@@ -63,6 +65,8 @@ Returns:
       "Internet"
     ]
   }
+
+And the equivalent XML.
 
 You can then call your API like this:
 
