@@ -82,11 +82,11 @@ and so on.
 
 Here's some more examples to get you started.
 
-== Root element
+=== Root element
 
   element :test => "value"
   
-== Element with reserved name
+=== Element with reserved name
 
   element :element => "value"
 
