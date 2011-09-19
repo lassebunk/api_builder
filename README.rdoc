@@ -90,6 +90,13 @@ Here's some more examples to get you started.
 
   element :element => "value"
 
+=== Model element
+
+  element :article => Article.first
+
+=== Model array
+
+  element :articles => Article.all
 
 == Features
 
