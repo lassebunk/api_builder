@@ -55,6 +55,14 @@ module ApiBuilder
           out[name] = @_out
           @_out = out
         end
+      elsif name.is_a?(Hash)
+        if @_out.nil?
+          @_out = StringWithName.new(name.keys[0], name.values[0])
+        elsif @_out.is_a?(Array)
+          @_out << StringWithName.new(name.keys[0], name.values[0])
+        else # out is a hash
+          @_out[name.keys[0]] = name.values[0]
+        end
       else
         if @_out.nil?
           @_out = StringWithName.new(name, value)
