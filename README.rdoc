@@ -78,6 +78,19 @@ or
   
 and so on.
 
+== More examples
+
+Here's some more examples to get you started.
+
+== Root element
+
+  element :test => "value"
+  
+== Element with reserved name
+
+  element :element => "value"
+
+
 == Features
 
 === Multiple formats
