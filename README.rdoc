@@ -8,7 +8,7 @@ ApiBuilder is a Ruby on Rails template engine that allows for multiple formats b
 
 == Examples
 
-In app/views/api/users/index.apibuilder:
+In <code>app/views/api/users/index.apibuilder</code>:
 
   array :users do
     @users.each do |user|
@@ -34,7 +34,7 @@ Returns:
 
 And the equivalent XML.
 
-In app/views/api/users/show.apibuilder:
+In <code>app/views/api/users/show.apibuilder</code>:
 
   element :user do
     id @user.id
