@@ -32,8 +32,12 @@ module ApiBuilder
     end
 
     def to_xml(options = {})
-      xml = Builder::XmlMarkup.new
-      xml.instruct!
+      if options[:builder]
+        xml = options[:builder]
+      else
+        xml = Builder::XmlMarkup.new
+        xml.instruct!
+      end
       xml.tag! name, to_s
     end
   end
