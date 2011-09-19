@@ -7,7 +7,7 @@ module ApiBuilder
     end
 
     def to_xml(options = {})
-      super options.update(:root => name, :skip_types => true)
+      super options.update(:root => name, :skip_types => true, :dasherize => false)
     end
   end
 
@@ -19,7 +19,7 @@ module ApiBuilder
     end
 
     def to_xml(options = {})
-      super options.update(:root => name, :skip_types => true)
+      super options.update(:root => name, :skip_types => true, :dasherize => false)
     end
   end
 
