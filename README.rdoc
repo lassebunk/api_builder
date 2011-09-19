@@ -45,7 +45,7 @@ In <em>app/views/api/users/show.apibuilder</em>:
     end
     array :interests do
       @user.interests.each do |interest|
-        element :interest, interest.name
+        element :interest => interest.name
       end
     end
   end
