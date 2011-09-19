@@ -42,18 +42,26 @@ module ApiBuilder
         if @_out.nil?
           @_out = HashWithName.new(name)
           block.call
-        else
+        elsif @_out.is_a?(Array)
           out = @_out
           @_out = HashWithName.new(name)
           block.call
           out << @_out
           @_out = out
+        else # out is a hash
+          out = @_out
+          @_out = {}
+          block.call
+          out[name] = @_out
+          @_out = out
         end
       else
         if @_out.nil?
           @_out = StringWithName.new(name, value)
-        else
+        elsif @_out.is_a?(Array)
           @_out << StringWithName.new(name, value)
+        else # out is a hash
+          @_out[name] = value
         end
       end
     end
