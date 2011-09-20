@@ -1,3 +1,5 @@
+require 'builder'
+
 module ApiBuilder
   class HashWithName < Hash
     send :attr_accessor, :name
