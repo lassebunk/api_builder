@@ -4,7 +4,11 @@ ApiBuilder is a Ruby on Rails template engine that allows for multiple formats b
 
 == Installation
 
-  $ rails plugin install git://github.com/lassebunk/api_builder.git
+In your <em>Gemfile</em>:
+
+  gem 'api_builder'
+
+And run <code>bundle install</code>.
 
 == Examples
 
