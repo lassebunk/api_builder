@@ -8,8 +8,8 @@ task :default => :test
 desc 'Test the api_builder plugin.'
 Rake::TestTask.new(:test) do |t|
   t.libs << 'lib'
-  t.libs << 'test'
-  t.pattern = 'test/**/*_test.rb'
+  t.libs << 'spec'
+  t.pattern = 'spec/**/*_spec.rb'
   t.verbose = true
 end
 

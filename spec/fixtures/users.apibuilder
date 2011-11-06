@@ -1,0 +1,8 @@
+array :users do
+  users.each do |user|
+    element :user do
+      id user.id
+      name user.name
+    end
+  end
+end

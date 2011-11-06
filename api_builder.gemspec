@@ -7,7 +7,9 @@ Gem::Specification.new do |s|
   s.description = "ApiBuilder is a Ruby on Rails template engine that allows for multiple formats being laid out in a single specification, currently XML and JSON."
   s.summary = "Multiple API formats from a single specification."
   s.homepage = "http://github.com/lassebunk/api_builder"
-  
+
+  s.add_development_dependency("actionpack")
+
   s.files = Dir['lib/**/*.rb']
   s.require_paths = ["lib"]
 end
