@@ -1,0 +1,4 @@
+element :user do
+  id user.id
+  name user.name
+end
