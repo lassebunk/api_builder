@@ -114,6 +114,11 @@ ApiBuilder supports JSONP requests. Just call your URL with a callback parameter
   
   http://example.com/api/users?format=json&callback=myCallback
 
+== Contributors
+
+* Lasse Bunk (creator)
+* Dennis Reimann
+
 == Support
 
 Questions and suggestions are welcome at lassebunk@gmail.com.
