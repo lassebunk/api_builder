@@ -2,6 +2,8 @@
 
 ApiBuilder is a Ruby on Rails template engine that allows for multiple formats being laid out in a single specification, currently XML and JSON.
 
+If you only need JSON, I recommend the Jbuilder gem: https://github.com/rails/jbuilder
+
 == Installation
 
 In your <em>Gemfile</em>:
